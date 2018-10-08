@@ -4,7 +4,7 @@
 
 const path = require('path')
 
-module.exports = {
+module.expornpm config list -lts = {
   dev: {
 
     // Paths
