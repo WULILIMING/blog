@@ -10,6 +10,7 @@ import Life from '@/components/Life'
 import Message from '@/components/Message'
 import AddArticle from '@/components/AddArticle'
 import Login from '@/components/Login'
+import UE from '@/components/Editor'
 
 Vue.use(Router)
 
@@ -52,7 +53,14 @@ export default new Router({
 			},{
 				path: '/addarticle',
 				name: 'addarticle',
-				component: AddArticle
+				component: AddArticle,
+				children:[
+					{
+						path: '/editor',
+						name: 'UE',
+						component: UE
+					}
+				]
 			}
 	  ]
     },{

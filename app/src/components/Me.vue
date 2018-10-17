@@ -3,6 +3,7 @@
         <div class="imgbox"><img src="../assets/images/carousel.jpg" alt=""></div>
         <div class="aboutme">
             <h1>欢迎您来到LiLiMing的博客，学习、工作、生活，都要精彩！</h1>
+            <hr />
             <div class="content">
                 <p>大学本专业，能不断学习新技术，独立解决开发中遇到的问题。熟练HTML5，css3.javaScript主流框架，jQuery，Vue.js均有涉猎，有使用express,gulp,git等项目快速构建和管理工具经验，node.js语言，mysql,SQLSever基本应用，技术在不断更新，我有良好的学习能力，希望能够到好的平台学习，展示自身能力.</p>
                 <p>大学本专业，能不断学习新技术，独立解决开发中遇到的问题。熟练HTML5，css3.javaScript主流框架，jQuery，Vue.js均有涉猎，有使用express,gulp,git等项目快速构建和管理工具经验，node.js语言，mysql,SQLSever基本应用，技术在不断更新，我有良好的学习能力，希望能够到好的平台学习，展示自身能力.</p>
@@ -12,22 +13,6 @@
             </div>
             <!-- 右半部分 -->
                 <aside>
-                    <div class="news">
-                        <div class="news-item">
-                            <a href="">
-                                <div class="imgbox"><img src="../assets/images/news-item.png" alt="简约餐厅"></div>
-                                <span>现代简约</span>
-                                <h1>黑白灰简约工业风客厅与餐厅</h1>
-                            </a>
-                        </div>
-                        <div class="news-item">
-                            <a href="">
-                                <div class="imgbox"><img src="../assets/images/news-item.png" alt="简约餐厅"></div>
-                                <span>现代简约</span>
-                                <h1>黑白灰简约工业风客厅与餐厅</h1>
-                            </a>
-                        </div>
-                    </div>
                     <!-- 特别推荐 -->
                     <div class="recomm-special">
                         <h1>特别推荐</h1>
@@ -132,28 +117,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 关注我们 -->
-                    <div class="recomm-special focus-us">
-                        <h1>请关注我们吧，Come on!</h1>
-                        <div class="line"></div>
-                        <ul>
-                            <li class="email">
-                                <a href="javascript:;">
-                                    17363397220@163.com
-                                    <span>邮箱账号</span>
-                                </a>
-                            </li>
-                            <li class="wechat">
-                                <a href="javascript:;">
-                                    ym15549027107
-                                    <span>微信号</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="wechat-code">
-                            <img src="../assets/images/ming-wechat.png" alt="Ming的微信">
-                        </div>
-                    </div>
                 </aside> 
         </div>   
     </div>
@@ -184,6 +147,9 @@ export default {
         h1{
             display: block;  
         }
+        hr{
+            margin-bottom: 20px;
+        }
         .content{
             float: left;
             width: 60%;
@@ -197,7 +163,7 @@ export default {
         }
         aside{
             float: right;
-            width: 380px;
+            max-width: 380px;
             margin-left: 20px;
             .news{
                 margin-bottom: 20px;

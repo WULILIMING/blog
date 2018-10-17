@@ -1,33 +1,41 @@
 <template>
     <div class="add-article">
-        <div class="container">
+        <div class="cont">
             <el-row>
-                <el-col :span="24"><h1>编辑文章</h1></el-col>
+                <el-col :span="24"><h1>新增文章</h1></el-col>
             </el-row>
             <el-row>
-                <el-col :span="24"><el-input v-model="title" type="text" placeholder="请输入标题"></el-input></el-col>
+                <el-col :span="24"><el-input v-model="title" type="text" placeholder="文章标题"></el-input></el-col>
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :span="4">
+                    <el-select v-model="value" placeholder="请选择文章类型">
+                        <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value"
+                            size="medium">
+                        </el-option>
+                    </el-select>
+                </el-col>
             </el-row>
             <el-row>
-                <el-col :span="24"><el-input v-model="imgsrc" type="text" placeholder="请输入路径"></el-input></el-col>
+                <div class="editor">
+                    <UE :defaultMsg=defaultMsg :config=config ref="ue"></UE>
+                </div>
             </el-row>
-            
-            <el-input
-                type="textarea"
-                autosize
-                placeholder="请输入文章内容"
-                v-model="content">
-            </el-input>
-            <el-input v-model="time" type="number" @focus="getTime()" placeholder="请输入时间"></el-input>
-            <el-input v-model="watch" type="number" placeholder="请输入阅览数量"></el-input>
-            <el-input v-model="like" type="number" placeholder="请输入收藏数"></el-input>
-            <el-input v-model="type" type="number" placeholder="请输入类型"></el-input>
-            <el-button type="success" @click="addItem()">提交</el-button>
+            <el-row>
+                <div class="graid-content button"><el-button type="success" size="meduim" @click="addItem()">提交</el-button></div>
+            </el-row>
         </div>
     </div>
 </template>
 <script>
 import axios from 'axios';
+import UE from '../components/Editor.vue';
 export default {
+    components: {UE},
     name:'add-article',
     data () {
         return {
@@ -37,14 +45,34 @@ export default {
             time:0,
             watch:0,
             like:0,
-            type:0
+            type:0,
+            defaultMsg: '这里是UE测试',
+            config: {
+                initialFrameWidth: null,
+                initialFrameHeight: 350
+            },
+            options: [{
+                value: '1',
+                label: '黄金糕'
+            }, {
+                value: '2',
+                label: '双皮奶'
+            }, {
+                value: '3',
+                label: '蚵仔煎'
+            }, {
+                value: '4',
+                label: '龙须面'
+            }, {
+                value: '5',
+                label: '北京烤鸭'
+            }],
+            value:''
         }
     },
     methods:{
-        getTime: function(){
-            this.time = Date.now();
-        },
         addItem: function(){
+            this.time = Date.now();
             axios.post('/api/insertArticle',{
                 title: this.title,
                 imgsrc: this.imgsrc,
@@ -66,7 +94,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.container{
+.cont{
     width: 1200px;
     margin: 0 auto;
     overflow: hidden;
@@ -80,6 +108,20 @@ export default {
     }
     .el-row{
         width: 100%;
+        margin-bottom: 20px;
+        &:last-child {
+        margin-bottom: 0;
+        }
+    }
+    .el-select{
+        width: 100%;
+    }
+    .el-button{
+        width: 100%;
+    }
+    .button{
+        width: 20%;
+        margin: 0 auto;
     }
 }
 </style>
