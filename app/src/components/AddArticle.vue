@@ -53,10 +53,10 @@ export default {
             },
             options: [{
                 value: '1',
-                label: '黄金糕'
+                label: '学习笔记'
             }, {
                 value: '2',
-                label: '双皮奶'
+                label: '生活时光'
             }, {
                 value: '3',
                 label: '蚵仔煎'
